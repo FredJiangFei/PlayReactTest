@@ -1,4 +1,15 @@
+步骤
+arrange
+act
+assert
+
+测试类型
+Unit tests
+Integration tests
+E2E tests
+
 测试框架
 Jest
+--jest.config.js
 
 React Testing Library
