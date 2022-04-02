@@ -2,10 +2,9 @@ import './App.css';
 import * as React from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import LocationDisplay from './components/LocationDisplay'
-
-const About = () => <div>You are on the about page</div>
-const Home = () => <div>You are home</div>
-const NoMatch = () => <div>No match</div>
+import About from './pages/About';
+import Home from './pages/Home';
+import NoMatch from './pages/NoMatch';
 
 function App() {
   return (
@@ -15,7 +14,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="*" element={ <NoMatch /> } />
+        <Route path="*" element={<NoMatch />} />
       </Routes>
       <LocationDisplay />
     </>

@@ -5,6 +5,10 @@ assert
 
 测试类型
 Unit tests
+--func
+--component
+--route
+
 Integration tests
 E2E tests
 
@@ -13,3 +17,7 @@ Jest
 --jest.config.js
 
 React Testing Library
+
+
+
+Angular test compare
