@@ -4,7 +4,7 @@ import LoginForm from '../components/LoginForm'
 
 afterEach(cleanup)
 
-describe('test login', () => {
+describe.skip('test login', () => {
   test('simple', () => {
     // Arrange
     const fakeUser = { username: 'fred', password: '123' }

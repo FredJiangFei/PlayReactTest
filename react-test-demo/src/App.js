@@ -7,8 +7,8 @@ import About from './pages/About';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Users from './pages/Users';
-import { store } from './store/Store';
 import Login from './pages/Login';
+import store from './store/Store';
 import 'milligram';
 
 function App() {

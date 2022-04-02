@@ -1,4 +1,4 @@
-const initialState = {count: 0}
+const initialState = { count: 0 }
 
 function CounterReducer(state = initialState, action) {
   switch (action.type) {
@@ -15,4 +15,4 @@ function CounterReducer(state = initialState, action) {
   }
 }
 
-export {CounterReducer}
+export { CounterReducer }

@@ -1,4 +1,6 @@
-﻿步骤
+﻿测试是保证软件质量的唯一途径
+
+步骤
 arrange
 act
 assert
@@ -10,16 +12,21 @@ Unit tests
 --route
 --redux
 --form
+--custom hook
 
 Integration tests
 E2E tests
 
 测试框架
-Jest
+Jest(通用的 JavaScript 测试框架，用于组织和运行你的测试用例)
+--describe
+--test
+--afterEach
 --jest.config.js
 
-React Testing Library
-
+React Testing Library(React测试框架,在内存中渲染 React 组件并提供工具库用于验证测试的结果)
 
 
 Angular test compare
+
+video: lesson 6
