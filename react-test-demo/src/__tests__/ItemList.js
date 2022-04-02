@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ItemList from './item-list';
+import ItemList from '../components/ItemList';
 
 test('renders "no items" when the item list is empty', () => {
     // arrange
