@@ -17,16 +17,28 @@ Unit tests
 Integration tests
 E2E tests
 
+测试命令
+npm run test -- JestExpect.js
+
 测试框架
 Jest(通用的 JavaScript 测试框架，用于组织和运行你的测试用例)
 --describe
+--skip
 --test
 --afterEach
+--expect/
 --jest.config.js
+
+__test__
+__snapshots__
 
 React Testing Library(React测试框架,在内存中渲染 React 组件并提供工具库用于验证测试的结果)
 
 
 Angular test compare
 
-video: lesson 6
+KentCDoods
+react test: https://www.bilibili.com/video/BV1kD4y127ic?spm_id_from=333.337.search-card.all.click
+git: https://github.com/kentcdodds?tab=repositories
+
+video: lesson 10
