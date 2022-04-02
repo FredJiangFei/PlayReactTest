@@ -1,4 +1,4 @@
-步骤
+﻿步骤
 arrange
 act
 assert
@@ -8,6 +8,8 @@ Unit tests
 --func
 --component
 --route
+--redux
+--form
 
 Integration tests
 E2E tests

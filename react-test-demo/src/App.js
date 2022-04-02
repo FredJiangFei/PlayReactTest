@@ -8,16 +8,20 @@ import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Users from './pages/Users';
 import { store } from './store/Store';
+import Login from './pages/Login';
+import 'milligram';
 
 function App() {
   return (
     <Provider store={store}>
       <Link to="/">Home</Link>{' | '} 
+      <Link to="/login">Login</Link>{' | '} 
       <Link to="/about">About</Link>{' | '} 
       <Link to="/users">Users</Link>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/users" element={<Users />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>

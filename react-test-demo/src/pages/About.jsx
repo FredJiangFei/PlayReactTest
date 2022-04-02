@@ -3,7 +3,7 @@ import { Counter } from "../components/Counter";
 const About = () => {
     return (
         <>
-            <div>You are on the about page</div>
+            <h1>You are on the about page</h1>
             <Counter/>
         </>
     )
