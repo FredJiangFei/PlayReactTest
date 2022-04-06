@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function UserList({ users }) {
   return users.length ? (
@@ -9,7 +9,7 @@ function UserList({ users }) {
     </ul>
   ) : (
     'no users'
-  )
+  );
 }
 
-export default UserList
+export default UserList;
