@@ -28,6 +28,7 @@ Jest(通用的 JavaScript 测试框架，用于组织和运行你的测试用例
 --afterEach
 --expect
 --jest.config.js
+--toBeDisabled
 
 __test__
 __snapshots__
@@ -36,7 +37,8 @@ __snapshots__
 --render
 --act
 --fireEvent
---screen
+--userEvent
+--screen: getByLabelText/getByText
 --toBeInTheDocument
 
 @testing-library/react-hooks
