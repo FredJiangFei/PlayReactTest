@@ -1,7 +1,7 @@
 
 import add from './add';
 
-test('renders learn react link', () => {
+test('calculate 1 add 2', () => {
   // act
   const s = add(1, 2);
   

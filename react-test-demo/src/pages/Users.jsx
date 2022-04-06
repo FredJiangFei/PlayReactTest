@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import UserList from "../components/UserList";
 import axios from "../utils/axios";
 
 const Users = () => {
@@ -16,7 +17,7 @@ const Users = () => {
     return (
         <>
             <h1>Users</h1>
-            {users.map(x=>(<p key={x.id}>{`${x.first_name} ${x.last_name}`}</p>))}
+            <UserList users={users} />
         </>
     )
 }
