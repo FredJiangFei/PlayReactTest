@@ -10,6 +10,7 @@ import Users from './pages/Users';
 import Login from './pages/Login';
 import store from './store/Store';
 import 'milligram';
+import "./i18n";
 
 function App() {
   return (
