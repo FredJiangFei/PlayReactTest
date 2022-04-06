@@ -1,14 +1,14 @@
-import axios from "axios";
+import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: "https://reqres.in/api/"
+  baseURL: 'https://reqres.in/api/',
 });
 
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) =>
     Promise.reject(
-      (error.response && error.response.data) || "Something went wrong"
+      (error.response && error.response.data) || 'Something went wrong'
     )
 );
 

@@ -1,16 +1,16 @@
-const initialState = { username: '' }
+const initialState = { username: '' };
 
 function AuthReducer(state = initialState, action) {
   switch (action.type) {
     case 'LOGIN':
       return {
         username: action.payload.username,
-      }
+      };
     case 'LOGOUT':
-      return initialState
+      return initialState;
     default:
-      return state
+      return state;
   }
 }
 
-export { AuthReducer }
+export { AuthReducer };
