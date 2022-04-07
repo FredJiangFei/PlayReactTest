@@ -1,4 +1,4 @@
-﻿测试是保证软件质量的唯一途径
+测试是保证软件质量的唯一途径
 
 步骤
 arrange
@@ -22,16 +22,6 @@ npm run test -- JestExpect / useCounter-*
 
 测试框架
 Jest(通用的 JavaScript 测试框架，用于组织和运行你的测试用例)
---describe
---skip
---test
---afterEach
---expect
---jest.config.js
---toBeDisabled
-
-__test__
-__snapshots__
 
 @testing-library/react (React测试框架,在内存中渲染 React 组件并提供工具库用于验证测试的结果)
 --render
@@ -51,4 +41,4 @@ KentCDoods
 react test: https://www.bilibili.com/video/BV1kD4y127ic?spm_id_from=333.337.search-card.all.click
 git: https://github.com/kentcdodds?tab=repositories
 
-video: lesson 10
+video: lesson 12
