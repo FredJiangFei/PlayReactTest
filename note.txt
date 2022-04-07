@@ -41,4 +41,4 @@ KentCDoods
 react test: https://www.bilibili.com/video/BV1kD4y127ic?spm_id_from=333.337.search-card.all.click
 git: https://github.com/kentcdodds?tab=repositories
 
-video: lesson 12
+video: lesson 14
