@@ -1,11 +1,10 @@
-import ReactDOM from 'react-dom';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import LoginForm from '../components/LoginForm';
 
 afterEach(cleanup);
 
 describe.only('test login', () => {
-  test('with react-testing-library fireEvent', () => {
+  test('with react-testing- library fireEvent', () => {
     // Arrange
     const fakeUser = { username: 'fred', password: '123' };
     const handleSubmit = jest.fn();
@@ -22,7 +21,7 @@ describe.only('test login', () => {
     passwordNode.value = fakeUser.password;
 
     // Act
-    fireEvent.click(getByText('Login'));
+    fireEvent.click(submitButtonNode);
 
     // Assert
     expect(handleSubmit).toHaveBeenCalledTimes(1);

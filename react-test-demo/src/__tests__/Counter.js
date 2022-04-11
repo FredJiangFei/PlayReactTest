@@ -1,31 +1,31 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { store } from '../store/Store';
+import { render, fireEvent } from '@testing-library/react';
 import { Counter } from '../components/Counter';
-import { createStore } from 'redux';
-import { CounterReducer } from '../store/reducers/CounterReducer';
+import store from '../store/Store';
 
-test('can render with redux with defaults', () => {
-  render(
-    <Provider store={store}>
-      <Counter />
-    </Provider>
-  );
+describe('counter redux', () => {
+  test('can render with redux with defaults', () => {
+    const { getByText, getByLabelText } = render(
+      <Provider store={store}>
+        <Counter />
+      </Provider>
+    );
+  
+    fireEvent.click(getByText('+'));
+  
+    expect(getByLabelText(/count/i)).toHaveTextContent('1');
+  });
+  
+  test('can render with redux with custom initial state', () => {
+    const { getByText, getByLabelText } = render(
+      <Provider store={store}>
+        <Counter />
+      </Provider>
+    );
+    fireEvent.click(getByText('-'));
+    expect(getByLabelText(/count/i)).toHaveTextContent('-1');
+  });
+})
 
-  userEvent.click(screen.getByText('+'));
 
-  expect(screen.getByLabelText(/count/i)).toHaveTextContent('1');
-});
-
-test('can render with redux with custom initial state', () => {
-  const store = createStore(CounterReducer, { count: 3 });
-  render(
-    <Provider store={store}>
-      <Counter />
-    </Provider>
-  );
-  userEvent.click(screen.getByText('-'));
-  expect(screen.getByLabelText(/count/i)).toHaveTextContent('2');
-});

@@ -18,7 +18,7 @@ Integration tests
 E2E tests
 
 测试命令
-npm run test -- JestExpect / useCounter-*
+npm run test -- JestExpect.js / useCounter-*
 
 测试框架
 Jest(通用的 JavaScript 测试框架，用于组织和运行你的测试用例)
