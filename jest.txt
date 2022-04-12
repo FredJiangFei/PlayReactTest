@@ -10,6 +10,7 @@ Jest(通用的 JavaScript 测试框架，用于组织和运行你的测试用例
 --expect
   	--toBe(uses Object.is to test exact equality)
 	--toEqual(check the value of an object)
+
 ## Truthiness
 --toBeNull/toBeUndefined/toBeDefined/toBeTruthy/toBeFalsy
 
@@ -26,42 +27,25 @@ Jest(通用的 JavaScript 测试框架，用于组织和运行你的测试用例
 --toThrow
 
 # Testing Asynchronous Code
-
-## Callbacks
-## Promises
-.resolves / .rejects
-Async/Await
+--Callbacks
+--.resolves / .rejects
+--Async/Await
 
 # Setup and Teardown
-
-## Repeating Setup For Many Tests
 --beforeEach
 --afterEach
-
-## One-Time Setup
 --beforeAll
 --afterAll
-
-## Scoping
 --describe(group tests)
 --test.only	
 
 # Mock Functions
-## Using a mock function
-const mockCallback = jest.fn(x => 42 + x);
-
-## .mock property
-
-## Mock Return Values
+-- mock func: const mockCallback = jest.fn(x => 42 + x);
+--.mock property
 --mockReturnValueOnce
-
-## Mocking Modules
-jest.mock('axios');
-
-## Mocking Partials
+--mock module: jest.mock('axios');
+--Mocking Partials
 ...
-
-#
 
 
 --skip

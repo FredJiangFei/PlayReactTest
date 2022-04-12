@@ -34,6 +34,11 @@ Jest(通用的 JavaScript 测试框架，用于组织和运行你的测试用例
 @testing-library/react-hooks
 --renderHook
 
+Snapshot
+
+jest --updateSnapshot
+npm run test -- UserListSnapshot --updateSnapshot
+
 
 Angular test compare
 
