@@ -35,10 +35,10 @@ Jest(通用的 JavaScript 测试框架，用于组织和运行你的测试用例
 --renderHook
 
 Snapshot
-
-jest --updateSnapshot
 npm run test -- UserListSnapshot --updateSnapshot
+npm run test -- UserListSnapshot -u
 
+看到这里：Inline Snapshots
 
 Angular test compare
 
