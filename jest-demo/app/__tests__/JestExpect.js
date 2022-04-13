@@ -1,16 +1,12 @@
-/*
-https://facebook.github.io/jest/docs/en/expect.html 
-*/
-
+// ===
 test('toBe', () => {
-  // similar to ===
-  expect(1).toBe(1);
-  expect(true).toBe(true);
+  expect(1 + 1).toBe(2);
+  expect(1 + 1).not.toBe(3);
   expect({}).not.toBe({});
 });
 
+// 属性相等
 test('toEqual', () => {
-  // like `lodash.isEqual`: https://lodash.com/docs/4.17.4#isEqual
   const subject = { a: { b: 'c' }, d: 'e' };
   const actual = { a: { b: 'c' }, d: 'e' };
   expect(subject).toEqual(actual);
@@ -20,8 +16,11 @@ test('toEqual', () => {
   expect(subArray).toEqual(actArray);
 });
 
+// toHaveLength
+// toThrow
+// toMatch
+
 test('toMatchObject', () => {
-  // similar to `toEqual`, but for partial equality
   const subject = { a: { b: 'c' }, d: 'e' };
   const actual = { a: { b: 'c' } };
   expect(subject).toMatchObject(actual);
