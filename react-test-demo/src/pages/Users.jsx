@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import UserList from '../components/UserList';
-import axios from '../utils/axios';
+import userService from '../services/userService';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -10,8 +10,8 @@ const Users = () => {
   }, []);
 
   const getUsers = async () => {
-    const res = await axios.get('users?page=2');
-    setUsers(res.data.data);
+    const res = await userService.getUsers(2);
+    setUsers(res.data);
   };
 
   return (

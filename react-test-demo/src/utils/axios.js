@@ -5,7 +5,7 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use(
-  (response) => response,
+  (res) => res.data,
   (error) =>
     Promise.reject(
       (error.response && error.response.data) || 'Something went wrong'
