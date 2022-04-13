@@ -3,7 +3,7 @@ import React from 'react';
 import UserList from '../components/UserList';
 
 test('renders the users snapshot', () => {
-  // act
+  // arrange
   var users = [
     {
       id: 7,
@@ -18,6 +18,8 @@ test('renders the users snapshot', () => {
       last_name: 'Ferguson'
     }
   ];
+
+  // act
   const {container} = render(<UserList users={users} />)
 
   // assert

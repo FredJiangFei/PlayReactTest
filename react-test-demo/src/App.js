@@ -9,6 +9,7 @@ import NoMatch from './pages/NoMatch';
 import Users from './pages/Users';
 import Login from './pages/Login';
 import store from './store/Store';
+import UserDetails from './pages/UserDetails';
 import 'milligram';
 import "./i18n";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/userDetails" element={<UserDetails />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
       <LocationDisplay />
