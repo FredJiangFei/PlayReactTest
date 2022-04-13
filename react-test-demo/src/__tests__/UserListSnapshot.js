@@ -23,3 +23,16 @@ test('renders the users snapshot', () => {
   // assert
   expect(container.firstChild).toMatchSnapshot()
 });
+
+it('renders the users snapshot with id and date', () => {
+  const user = {
+    createdAt: new Date(),
+    id: Math.floor(Math.random() * 20),
+    name: 'LeBron James',
+  };
+
+  expect(user).toMatchSnapshot({
+    createdAt: expect.any(Date),
+    id: expect.any(Number),
+  });
+});
