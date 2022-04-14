@@ -1,11 +1,11 @@
-// ===
+// toBe ===
 test('toBe', () => {
   expect(1 + 1).toBe(2);
   expect(1 + 1).not.toBe(3);
   expect({}).not.toBe({});
 });
 
-// 属性相等
+// toEqual 属性相等
 test('toEqual', () => {
   const subject = { a: { b: 'c' }, d: 'e' };
   const actual = { a: { b: 'c' }, d: 'e' };
@@ -16,10 +16,44 @@ test('toEqual', () => {
   expect(subArray).toEqual(actArray);
 });
 
-// toHaveLength
-// toThrow
-// toMatch
+test('toEqual matching a schema', () => {
+  const birthday = {
+    day: 18,
+    month: 10,
+    year: 1988,
+    meta: { display: 'Oct 18th, 1988' }
+  };
+  const schema = {
+    day: expect.any(Number),
+    month: expect.any(Number),
+    year: expect.any(Number),
+    meta: { display: expect.stringContaining('1988') }
+  };
+  expect(birthday).toEqual(schema);
+});
 
+// toHaveLength
+test('toHaveLength', () => {
+  const apples = ['apple', 'apple'];
+  expect(apples).toHaveLength(2);
+});
+
+// toThrow
+function Bomb() {
+  throw new Error('💥 CABOOM 💥')
+}
+
+test('expect throw Bomb', () => {
+  expect(Bomb).toThrow(Error);
+  expect(Bomb).toThrow(new Error('💥 CABOOM 💥'));
+})
+
+// toMatch
+test('toMatch', () => {
+  expect('Christoph').toMatch(/stop/);
+});
+
+// toMatchObject
 test('toMatchObject', () => {
   const subject = { a: { b: 'c' }, d: 'e' };
   const actual = { a: { b: 'c' } };
@@ -30,27 +64,39 @@ test('toMatchObject', () => {
   expect(subArray).toMatchObject(actArray);
 });
 
-test('toHaveBeenCalledTimes', () => {
-  const mockFn = jest.fn();
-  expect(mockFn).toHaveBeenCalledTimes(0);
-
-  mockFn();
-  expect(mockFn).toHaveBeenCalledTimes(1);
+// toContain
+test('toContain', () => {
+  expect(['one', 'two']).toContain('one');
 });
 
-test('toHaveBeenCalledWith', () => {
-  const mockFn = jest.fn();
-  mockFn('abc', { oneTwoThree: 123 });
-  // NOTE: uses toEqual (not toBe) on each arg
-  expect(mockFn).toHaveBeenCalledWith('abc', { oneTwoThree: 123 });
-});
+// toHaveBeenCalled
+describe('toHaveBeenCalled', () => {
+  test('toHaveBeenCalledTimes', () => {
+    const mockFn = jest.fn();
+    expect(mockFn).toHaveBeenCalledTimes(0);
+  
+    mockFn();
+    expect(mockFn).toHaveBeenCalledTimes(1);
+  });
+  
+  test('toHaveBeenCalledWith', () => {
+    const mockFn = jest.fn();
+    mockFn('abc', { oneTwoThree: 123 });
+    expect(mockFn).toHaveBeenCalledWith('abc', { oneTwoThree: 123 });
+  });
+})
 
-test('toBeGreaterThan', () => {
+// number compare
+test('number compare', () => {
+  expect(10).toBeLessThan(11);
+
   expect(10).toBeGreaterThan(3);
-  expect(10).not.toBeGreaterThan(10);
   expect(10).toBeGreaterThanOrEqual(10);
+
+  expect(10).not.toBeGreaterThan(10);
 });
 
+// toBeFalsy/Truthy
 test('toBeFalsy/Truthy', () => {
   expect(false).toBeFalsy();
   expect(true).toBeTruthy();
@@ -58,23 +104,6 @@ test('toBeFalsy/Truthy', () => {
   expect(undefined).toBeFalsy();
   expect(1).toBeTruthy();
   expect(0).toBeFalsy();
-});
-
-test('toEqual, toMatchObject, and toHaveBeenCalledWith matching a schema', () => {
-  const birthday = {
-    day: 18,
-    month: 10,
-    year: 1988,
-    meta: { display: 'Oct 18th, 1988' },
-  };
-  const schema = {
-    day: expect.any(Number),
-    month: expect.any(Number),
-    year: expect.any(Number),
-    meta: { display: expect.stringContaining('1988') },
-    // there's also expect.arrayContaining, or expect.objectContaining
-  };
-  expect(birthday).toEqual(schema);
 });
 
 test('mock functions', () => {
