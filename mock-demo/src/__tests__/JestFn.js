@@ -16,7 +16,9 @@ test('mockReturnValue', () => {
 
 test('mockReturnValueOnce', () => {
   let mockFn = jest.fn();
-  mockFn.mockReturnValueOnce(10).mockReturnValueOnce('x').mockReturnValue(true);
+  mockFn.mockReturnValueOnce(10)
+  .mockReturnValueOnce('x')
+  .mockReturnValue(true);
 
   expect(mockFn()).toBe(10);
   expect(mockFn()).toBe('x');

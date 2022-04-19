@@ -1,10 +1,6 @@
 import axios from "../utils/axios"
 import utils from "../utils/utils";
 
-const getUsers = (page) => {
-  return axios.get(`users?page=${page}`);
-}
-
 const getUserName = (id) => {
     const location = utils.getLocation();
     return axios.get(`users/${id}`)
@@ -13,6 +9,5 @@ const getUserName = (id) => {
 }
 
 export default {
-    getUsers,
     getUserName
 }
