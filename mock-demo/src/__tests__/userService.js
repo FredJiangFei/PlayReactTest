@@ -30,7 +30,7 @@ test('should return format user async/await', async () => {
 
 test('should throw exception', async () => {
   // arrange
-  const expectedError = new Error('💥 123CABOOM 💥');
+  const expectedError = new Error('💥 CABOOM 💥');
   axios.get.mockRejectedValue(expectedError);
 
   // act
