@@ -25,11 +25,12 @@ test('should return format user async/await', async () => {
   expect(res).toEqual(
     `${user.first_name} ${user.last_name} ${user.email} BeiJing`
   );
+  // expect(utils.getWeather()).toBe('Sunny');
 });
 
 test('should throw exception', async () => {
   // arrange
-  const expectedError = new Error('💥 CABOOM 💥');
+  const expectedError = new Error('💥 123CABOOM 💥');
   axios.get.mockRejectedValue(expectedError);
 
   // act

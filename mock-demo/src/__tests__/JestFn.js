@@ -1,5 +1,4 @@
 // jest.fn mock function
-
 test('jest.fn', () => {
   let mockFn = jest.fn();
   let result = mockFn(1, 2, 3);
