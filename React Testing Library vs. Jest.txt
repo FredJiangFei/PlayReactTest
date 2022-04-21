@@ -1,0 +1,2 @@
+Jest is a test runner that finds tests, runs the tests, and determines whether the tests passed or failed. 
+React Testing Library provides virtual DOMs for testing React components.

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LoginForm from './../components/LoginForm';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import userService from '../services/userService';
+import authService from '../services/authService';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     setError(null);
     try {
-      await userService.login(e.username, e.password);
+      await authService.login(e.username, e.password);
       navigate('/');
       //eve.holt@reqres.in, cityslicka
 

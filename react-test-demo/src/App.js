@@ -1,36 +1,23 @@
-import './App.css';
+import './App.css'
 import * as React from 'react'
-import { Provider } from 'react-redux';
-import { Link, Route, Routes } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import LocationDisplay from './components/LocationDisplay'
-import About from './pages/About';
-import Home from './pages/Home';
-import NoMatch from './pages/NoMatch';
-import Users from './pages/Users';
-import Login from './pages/Login';
-import store from './store/Store';
-import UserDetails from './pages/UserDetails';
-import 'milligram';
-import "./i18n";
+import store from './store/Store'
+import 'milligram'
+import './i18n'
+import { useRoutes } from 'react-router-dom'
+import routes from './routes'
 
 function App() {
+  const content = useRoutes(routes)
+  const AuthContext = React.createContext(null);
+
   return (
     <Provider store={store}>
-      <Link to="/">Home</Link>{' | '} 
-      <Link to="/login">Login</Link>{' | '} 
-      <Link to="/about">About</Link>{' | '} 
-      <Link to="/users">Users</Link>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/userDetails" element={<UserDetails />} />
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
+      <AuthContext.Provider>{content}</AuthContext.Provider>
       <LocationDisplay />
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App
