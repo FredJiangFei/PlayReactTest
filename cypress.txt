@@ -1,0 +1,2 @@
+npx cypress run
+npx cypress run --record --spec "cypress/integration/form.spec.js"
