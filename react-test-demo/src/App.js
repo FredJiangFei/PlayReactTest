@@ -9,12 +9,9 @@ import { useRoutes } from 'react-router-dom'
 import routes from './routes'
 
 function App() {
-  const content = useRoutes(routes)
-  const AuthContext = React.createContext(null);
-
   return (
     <Provider store={store}>
-      <AuthContext.Provider>{content}</AuthContext.Provider>
+      {useRoutes(routes)}
       <LocationDisplay />
     </Provider>
   )

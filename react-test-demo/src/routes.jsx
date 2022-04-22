@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Users from './pages/Users'
 import AuthLayout from './layouts/Auth';
 import AuthGuard from './components/guards/AuthGuard';
+import UserDetails from './pages/UserDetails'
 
 const routes = [
   {
@@ -26,6 +27,10 @@ const routes = [
       {
         path: 'users',
         element: <Users />,
+      },
+      {
+        path: 'userDetails',
+        element: <UserDetails />,
       },
     ],
   },

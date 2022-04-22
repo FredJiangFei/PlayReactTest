@@ -1,14 +1,16 @@
-import { Link } from 'react-router-dom'
-import { Outlet, useNavigate } from 'react-router'
-import authService from '../services/authService'
+import { Link } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router';
+import { LogoutAction } from '../store/actions/user.actions';
+import { useDispatch } from 'react-redux';
 
 const HomeLayout = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const logout = () => {
-    authService.logout()
-    navigate('/login')
-  }
+    dispatch(LogoutAction());
+    navigate('/login');
+  };
 
   return (
     <>
@@ -20,7 +22,7 @@ const HomeLayout = () => {
       <button onClick={logout}>Logout</button>
       <Outlet />
     </>
-  )
-}
+  );
+};
 
-export default HomeLayout
+export default HomeLayout;

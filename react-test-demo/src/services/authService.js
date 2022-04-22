@@ -1,21 +1,26 @@
-import axios from "../utils/axios"
+import axios from '../utils/axios';
 
 const tokenKey = 'token';
 
-const login = async (username, password) => {
-    localStorage.setItem(tokenKey, '123');
-}
+const login = (username, password) => {
+  return axios.post(`login`, { username, password });
+};
 
 const logout = () => {
-    localStorage.removeItem(tokenKey);
-}
+  localStorage.removeItem(tokenKey);
+};
 
-const getCurrentUser =  () => {
-    return localStorage.getItem(tokenKey);
+const getCurrentUser = () => {
+  return localStorage.getItem(tokenKey);
+};
+
+function setJwt(token) {
+  localStorage.setItem(tokenKey, token);
 }
 
 export default {
-    login,
-    logout,
-    getCurrentUser,
+  login,
+  logout,
+  getCurrentUser,
+  setJwt,
 };

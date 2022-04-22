@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import LoginForm from './../components/LoginForm';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import authService from '../services/authService';
+import { LoginAction } from '../store/actions/user.actions';
+import { useSelector } from 'react-redux';
 
 const Login = () => {
+  const { logging, error, isLoggedIn } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [error, setError] = useState()  
 
   const handleSubmit = async (e) => {
-    setError(null);
-    try {
-      await authService.login(e.username, e.password);
-      navigate('/');
-      //eve.holt@reqres.in, cityslicka
-
-    } catch (error) {
-      setError(error.error);
-    }
-    // dispatch({ type: 'LOGIN', payload: { username: e.username } });
+    //eve.holt@reqres.in, cityslicka
+    dispatch(LoginAction(e.username, e.password));
   };
+
+  useEffect(() => {
+    if (isLoggedIn) navigate('/');
+  }, [isLoggedIn]);
 
   return (
     <>
       <LoginForm onSubmit={handleSubmit} />
-      <h5 data-testid="test-error" style={{ color: 'red' }}>{error}</h5>
+      {logging && <h3>loading......</h3>}
+      <h5 data-testid="test-error" style={{ color: 'red' }}>
+        {error}
+      </h5>
     </>
   );
 };
