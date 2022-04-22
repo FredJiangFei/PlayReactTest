@@ -1,2 +1,3 @@
 npx cypress run
+npx cypress run --spec "cypress/integration/form.spec.js"
 npx cypress run --record --spec "cypress/integration/form.spec.js"
