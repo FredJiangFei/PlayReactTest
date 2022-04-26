@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import LoginForm from './../components/LoginForm';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { LoginAction } from '../store/actions/user.actions';
+import { LoginAction } from '../store/actions/auth.actions';
 import { useSelector } from 'react-redux';
 
 const Login = () => {

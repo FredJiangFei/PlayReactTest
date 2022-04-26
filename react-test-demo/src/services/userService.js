@@ -1,20 +1,18 @@
-import axios from "../utils/axios"
+import axios from '../utils/axios'
+import utils from '../utils/utils'
 
-const getUsers = (page) => {
-   return axios.get(`users?page=${page}`);
-}
+const getUserGreeting = (id) => {
+  const weekday = utils.getWeekday()
+  const weather = utils.getWeather()
 
-const getUserName = (id) => {
-    return axios.get(`users/${id}`)
-    .then(res => `${res.data.first_name} ${res.data.last_name} ${res.data.email}`);
-}
-
-const login = (email, password) => {
-    return axios.post(`login`, { email, password });
+  return axios
+    .get(`users/${id}`)
+    .then(
+      (res) =>
+        `${res.data.first_name} ${res.data.last_name}, ${weekday}, ${weather}`
+    )
 }
 
 export default {
-    login,
-    getUsers,
-    getUserName
+  getUserGreeting,
 }

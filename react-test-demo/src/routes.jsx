@@ -2,10 +2,9 @@ import HomeLayout from './layouts/Home'
 import About from './pages/About'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import Users from './pages/Users'
 import AuthLayout from './layouts/Auth';
 import AuthGuard from './components/guards/AuthGuard';
-import UserDetails from './pages/UserDetails'
+import Todo from './pages/ToDo'
 
 const routes = [
   {
@@ -25,13 +24,9 @@ const routes = [
         element: <About />,
       },
       {
-        path: 'users',
-        element: <Users />,
-      },
-      {
-        path: 'userDetails',
-        element: <UserDetails />,
-      },
+        path: 'todos',
+        element: <Todo />,
+      }
     ],
   },
   {
