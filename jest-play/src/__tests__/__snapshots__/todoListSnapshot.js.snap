@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the todos empty snapshot 1`] = `
+<div>
+  <h3>
+    Lists
+  </h3>
+  <p>
+    No task!
+  </p>
+</div>
+`;
+
+exports[`renders the todos snapshot 1`] = `
+<div>
+  <h3>
+    Lists
+  </h3>
+  <ul>
+    <li>
+      <div>
+        delectus aut autem
+        <button
+          class="btn btn-danger"
+        >
+          X
+        </button>
+      </div>
+    </li>
+    <li>
+      <div>
+        quis ut nam facilis et officia qui
+        <button
+          class="btn btn-danger"
+        >
+          X
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders the users snapshot with id and date 1`] = `
+Object {
+  "createdAt": Any<Date>,
+  "id": Any<Number>,
+  "name": "LeBron James",
+}
+`;
