@@ -1,4 +1,4 @@
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, screen } from '@testing-library/react';
 import LoginForm from '../components/LoginForm';
 
 afterEach(cleanup);
@@ -9,13 +9,13 @@ describe.only('test login', () => {
     const fakeUser = { username: 'fred', password: '123' };
     const handleSubmit = jest.fn();
 
-    const { getByLabelText, getByText } = render(
+    render(
       <LoginForm onSubmit={handleSubmit} />
     );
 
-    const usernameNode = getByLabelText('Username');
-    const passwordNode = getByLabelText('Password');
-    const submitButtonNode = getByText('Login');
+    const usernameNode = screen.getByLabelText('Username');
+    const passwordNode = screen.getByLabelText('Password');
+    const submitButtonNode = screen.getByText('Login');
 
     usernameNode.value = fakeUser.username;
     passwordNode.value = fakeUser.password;

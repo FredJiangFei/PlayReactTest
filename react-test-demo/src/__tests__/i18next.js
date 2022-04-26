@@ -1,20 +1,20 @@
 import * as React from 'react'
 import { I18nextProvider } from 'react-i18next'
 import i18n from 'i18next'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import "../i18n";
 import Greeting from '../components/Greeting'
 
 test('it should test lang', () => {
-  const { getByTestId, getByText } = render(
+  render(
     <I18nextProvider i18n={i18n}>
       <Greeting />
     </I18nextProvider>
   )
-  const p = getByTestId('test-i18')
-  const pt = getByText('pt')
-  const en = getByText('en')
+  const p = screen.getByTestId('test-i18')
+  const pt = screen.getByText('pt')
+  const en = screen.getByText('en')
 
   expect(p).toHaveTextContent('Welcome to React')
 

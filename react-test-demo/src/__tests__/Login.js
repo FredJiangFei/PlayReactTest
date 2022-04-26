@@ -1,4 +1,4 @@
-import { render, fireEvent, waitFor, cleanup } from '@testing-library/react';
+import { render, fireEvent, waitFor, cleanup, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import Login from '../pages/Login';
@@ -10,7 +10,7 @@ describe('login integration test', () => {
 
   test('login no username', async () => {
     // Arrange
-    const { getByText, getByTestId } = render(
+    render(
       <BrowserRouter>
         <Provider store={store}>
           <Login />
@@ -18,13 +18,13 @@ describe('login integration test', () => {
       </BrowserRouter>
     );
 
-    const submitButtonNode = getByText('Login');
+    const submitButtonNode = screen.getByText('Login');
 
     // Act
     fireEvent.click(submitButtonNode);
 
     // Assert
-    const errorNode = getByTestId("test-error");
+    const errorNode = screen.getByTestId("test-error");
     await waitFor(() => {
       expect(errorNode.textContent).toBe('Missing email or username');
     });
@@ -32,7 +32,7 @@ describe('login integration test', () => {
 
   test('login no password', async () => {
     // Arrange
-    const { getByLabelText, getByText, getByTestId } = render(
+    render(
       <BrowserRouter>
         <Provider store={store}>
           <Login />
@@ -40,15 +40,15 @@ describe('login integration test', () => {
       </BrowserRouter>
     );
 
-    const usernameNode = getByLabelText('Username');
+    const usernameNode = screen.getByLabelText('Username');
     usernameNode.value = "eve.holt@reqres.in";
 
     // Act
-    const submitButtonNode = getByText('Login');
+    const submitButtonNode = screen.getByText('Login');
     fireEvent.click(submitButtonNode);
 
     // Assert
-    const errorNode = getByTestId("test-error");
+    const errorNode = screen.getByTestId("test-error");
     await waitFor(() => {
       expect(errorNode.textContent).toBe('Missing password');
     });
