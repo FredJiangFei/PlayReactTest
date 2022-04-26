@@ -44,7 +44,7 @@ const routes = [
     path: '*',
     children: [
       {
-        path: '',
+        path: '*',
         element: <NoMatch />,
       },
     ],

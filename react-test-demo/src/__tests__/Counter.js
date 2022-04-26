@@ -5,7 +5,7 @@ import { Counter } from '../components/Counter'
 import store from '../store/Store'
 
 describe('counter redux', () => {
-  test('can render with redux with defaults', () => {
+  test('increment 1 to be 1', () => {
     render(
       <Provider store={store}>
         <Counter />
@@ -17,7 +17,7 @@ describe('counter redux', () => {
     expect(screen.getByLabelText(/count/i)).toHaveTextContent('1')
   })
 
-  test('can render with redux with custom initial state', () => {
+  test('decrement 1 to be -1', () => {
     render(
       <Provider store={store}>
         <Counter />

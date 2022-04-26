@@ -4,7 +4,7 @@ import LoginForm from '../components/LoginForm';
 afterEach(cleanup);
 
 describe.only('test login', () => {
-  test('with react-testing- library fireEvent', () => {
+  test('with react-testing-library fireEvent', () => {
     // Arrange
     const fakeUser = { username: 'fred', password: '123' };
     const handleSubmit = jest.fn();
