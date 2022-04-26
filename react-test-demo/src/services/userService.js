@@ -11,6 +11,7 @@ const getUserGreeting = (id) => {
       (res) =>
         `${res.data.first_name} ${res.data.last_name}, ${weekday}, ${weather}`
     )
+    .catch((err) => err.message)
 }
 
 export default {

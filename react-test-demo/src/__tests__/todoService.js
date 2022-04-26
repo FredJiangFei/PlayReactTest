@@ -1,8 +1,7 @@
-import todoService from '../services/todoService';
-
+import todoService from "../services/todoService";
 jest.mock('../utils/axiosTodo');
 
-test('mock file', async () => {
+test('todo mock file', async () => {
   // act
   const res = await todoService.getTodoTitle(1);
 

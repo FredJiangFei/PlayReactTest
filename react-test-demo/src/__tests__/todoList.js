@@ -1,12 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import TodoList from '../components/TodoList';
 
 test('renders the todos empty', () => {
-  const { getByText } = render(<TodoList items={[]} />);
+  render(<TodoList items={[]} />);
 
   //assert
-  expect(getByText('No task!')).toBeInTheDocument();
+  expect(screen.getByText('No task!')).toBeInTheDocument();
 });
 
 test('renders the todos', () => {
@@ -27,9 +27,9 @@ test('renders the todos', () => {
   ];
 
   // act
-  const { getByText } = render(<TodoList items={items} />);
+  render(<TodoList items={items} />);
 
   // assert
-  expect(getByText('delectus aut autem')).toBeInTheDocument();
-  expect(getByText('quis ut nam facilis et officia qui')).toBeInTheDocument();
+  expect(screen.getByText('delectus aut autem')).toBeInTheDocument();
+  expect(screen.getByText('quis ut nam facilis et officia qui')).toBeInTheDocument();
 });

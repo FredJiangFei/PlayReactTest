@@ -26,14 +26,14 @@ const HomeLayout = () => {
 
   return (
     <>
-      <div class="row">
+      <div className="row">
         <Link to="/">Home</Link>
         {' | '}
         <Link to="/about">About</Link>
         {' | '}
         <Link to="/todos">Todos</Link>
-        <div class="column"></div>
-        <div class="column">
+        <div className="column"></div>
+        <div className="column">
           Hello, {userName}
           &nbsp;&nbsp;&nbsp;
           <button onClick={logout}>Logout</button>

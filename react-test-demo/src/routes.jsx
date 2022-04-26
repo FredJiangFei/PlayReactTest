@@ -2,8 +2,9 @@ import HomeLayout from './layouts/Home'
 import About from './pages/About'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import AuthLayout from './layouts/Auth';
-import AuthGuard from './components/guards/AuthGuard';
+import NoMatch from './pages/NoMatch'
+import AuthLayout from './layouts/Auth'
+import AuthGuard from './components/guards/AuthGuard'
 import Todo from './pages/ToDo'
 
 const routes = [
@@ -26,19 +27,26 @@ const routes = [
       {
         path: 'todos',
         element: <Todo />,
-      }
+      },
     ],
   },
   {
     path: '/login',
-    element: (
-        <AuthLayout />
-    ),
+    element: <AuthLayout />,
     children: [
       {
         path: '',
         element: <Login />,
-      }
+      },
+    ],
+  },
+  {
+    path: '*',
+    children: [
+      {
+        path: '',
+        element: <NoMatch />,
+      },
     ],
   },
 ]
