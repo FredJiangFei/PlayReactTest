@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-const TodoItem = ({ id, title }) => {
+const TodoItem = ({ id, title, onRemoveTodo }) => {
   return (
     <>
-      {title} <button>X</button>
+      {title}
+      <button className="btn-danger" onClick={() => onRemoveTodo(id)}>
+        X
+      </button>
     </>
-  )
-}
+  );
+};
 
-export default TodoItem
+export default TodoItem;

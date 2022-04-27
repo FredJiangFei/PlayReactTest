@@ -1,6 +1,7 @@
-describe('Form', () => {
+describe('Todo', () => {
   beforeEach(() => {
-    cy.visit('/');
+    localStorage.setItem('token', '123')
+    cy.visit('/todos');
   });
 
   it('displays list of todo', () => {

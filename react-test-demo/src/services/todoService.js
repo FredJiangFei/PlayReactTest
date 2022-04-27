@@ -7,11 +7,6 @@ const getTodoTitle = (id) => {
     .catch((err) => err.message)
 }
 
-const getTodos = () => {
-  return axios.get(`todos`)
-}
-
 export default {
-  getTodoTitle,
-  getTodos
+  getTodoTitle
 }
