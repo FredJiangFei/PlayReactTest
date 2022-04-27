@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TodoForm from '../components/TodoForm';
 import TodoList from './../components/TodoList';
 
 function Todo() {
@@ -12,36 +13,23 @@ function Todo() {
       title: 'Write tutorial',
     },
   ]);
-  const [text, setText] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = ({ title }) => {
     setTodos((items) => [
       ...items,
       {
         id: items.length + 1,
-        title: text.slice(),
+        title,
       },
     ]);
-    setText('');
   };
-  const handleInputChange = (e) => setText(e.target.value);
 
   const handleRemove = (id) =>
-  setTodos((items) => items.filter((c) => c.id !== id));
+    setTodos((items) => items.filter((c) => c.id !== id));
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          autoFocus
-          className="form-control"
-          value={text}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Add Todo</button>
-      </form>
+      <TodoForm onSubmit={handleSubmit} />
       <TodoList items={todos} onRemoveTodo={handleRemove} />
     </>
   );
