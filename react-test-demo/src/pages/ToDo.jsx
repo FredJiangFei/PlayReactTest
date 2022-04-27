@@ -1,31 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TodoForm from '../components/TodoForm';
 import TodoList from './../components/TodoList';
+import { useSelector, useDispatch } from 'react-redux';
+import { TodoConstants } from '../store/actions/todo.actions';
 
 function Todo() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      title: 'Buy Milk',
-    },
-    {
-      id: 2,
-      title: 'Write tutorial',
-    },
-  ]);
+  const todos = useSelector((state) => state.todo);
+  const dispatch = useDispatch();
 
   const handleSubmit = ({ title }) => {
-    setTodos((items) => [
-      ...items,
-      {
-        id: items.length + 1,
-        title,
-      },
-    ]);
+    var todo = {
+      id: todos.length + 1,
+      title,
+    };
+    dispatch({ type: TodoConstants.ADD_TODO, payload: { todo } });
   };
 
   const handleRemove = (id) =>
-    setTodos((items) => items.filter((c) => c.id !== id));
+    dispatch({ type: TodoConstants.DELETE_TODO, payload: { id } });
 
   return (
     <>

@@ -13,26 +13,26 @@ const render = (ui, { route = '/' } = {}) => {
 
 describe('route', () => {
   test('full app rendering/navigating', () => {
+    localStorage.setItem('token', '123');
+
     render(<App />);
     expect(screen.getByText(/you are home/i)).toBeInTheDocument();
-  
+
     userEvent.click(screen.getByText(/about/i));
-  
+
     expect(screen.getByText(/you are on the about page/i)).toBeInTheDocument();
   });
-  
+
   test('landing on a bad page', () => {
     render(<App />, { route: '/something-that-does-not-match' });
-  
+
     expect(screen.getByText(/no match/i)).toBeInTheDocument();
   });
-  
+
   test('rendering a component that uses useLocation', () => {
     const route = '/some-route';
     render(<LocationDisplay />, { route });
-  
+
     expect(screen.getByTestId('location-display')).toHaveTextContent(route);
   });
 });
-
-
