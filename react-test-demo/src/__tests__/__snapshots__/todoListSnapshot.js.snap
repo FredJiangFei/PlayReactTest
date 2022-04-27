@@ -5,7 +5,9 @@ exports[`renders the todos empty snapshot 1`] = `
   <h3>
     Lists
   </h3>
-  <p>
+  <p
+    class="no-task"
+  >
     No task!
   </p>
 </div>
@@ -19,15 +21,17 @@ exports[`renders the todos snapshot 1`] = `
   <ul>
     <li>
       delectus aut autem
-       
-      <button>
+      <button
+        class="btn-danger"
+      >
         X
       </button>
     </li>
     <li>
       quis ut nam facilis et officia qui
-       
-      <button>
+      <button
+        class="btn-danger"
+      >
         X
       </button>
     </li>
