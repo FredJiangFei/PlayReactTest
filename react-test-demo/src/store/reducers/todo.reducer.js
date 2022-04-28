@@ -1,20 +1,10 @@
-import { TodoConstants } from "../actions/todo.actions";
+import { TodoConstants } from '../actions/todo.actions';
 
-const initialState = [
-  {
-    id: 1,
-    title: 'Buy Milk',
-  },
-  {
-    id: 2,
-    title: 'Write tutorial',
-  }
-];
-
+const initialState = [];
 function TodoReducer(state = initialState, action) {
   switch (action.type) {
     case TodoConstants.LOAD_TODOS:
-      return state;
+      return action.payload.todos;
     case TodoConstants.ADD_TODO:
       return [...state, action.payload.todo];
     case TodoConstants.DELETE_TODO:

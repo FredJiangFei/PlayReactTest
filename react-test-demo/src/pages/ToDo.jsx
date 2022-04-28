@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TodoForm from '../components/TodoForm';
 import TodoList from './../components/TodoList';
 import { useSelector, useDispatch } from 'react-redux';
-import { TodoConstants } from '../store/actions/todo.actions';
+import { GetTodos, TodoConstants } from '../store/actions/todo.actions';
 
 function Todo() {
   const todos = useSelector((state) => state.todo);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    getTodos();
+  }, []);
+
+  const getTodos = () => dispatch(GetTodos());
 
   const handleSubmit = ({ title }) => {
     var todo = {
