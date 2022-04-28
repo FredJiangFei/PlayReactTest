@@ -9,11 +9,10 @@ test('test todo form', () => {
   render(<TodoForm onSubmit={handleSubmit} />);
 
   const titleNode = document.querySelector('.form-control');
-  const submitButton = screen.getByText('Add Todo');
-
   titleNode.value = fakeTodo.title;
-
+  
   // Act
+  const submitButton = screen.getByText('Add Todo');
   fireEvent.click(submitButton);
 
   // Assert
