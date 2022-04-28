@@ -13,11 +13,13 @@ export const GetTodos = () => async dispatch => {
 };
 
 export const AddTodo = (title) => async dispatch => {
-  await todoService.addTodo(title);
-  dispatch(GetTodos());
+  const res = await todoService.addTodo(title);
+  const action = { type: TodoConstants.ADD_TODO, payload: { todo: res } };
+  dispatch(action);
 };
 
 export const DeleteTodo = (id) => async dispatch => {
   await todoService.deleteTodo(id);
-  dispatch(GetTodos());
+  const action = { type: TodoConstants.DELETE_TODO, payload: { id } };
+  dispatch(action);
 };
