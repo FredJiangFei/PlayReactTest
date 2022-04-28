@@ -1,8 +1,8 @@
 import axios from '../utils/axiosTodo';
 
-const getTodos = () => {
-  return axios.get(`todos`);
-};
+const getTodos = () => axios.get(`todos`);
+const addTodo = (title) => axios.post(`todos`, { title });
+const deleteTodo = (id) => axios.delete(`todos/${id}`);
 
 const getTodoTitle = (id) => {
   return axios
@@ -13,5 +13,7 @@ const getTodoTitle = (id) => {
 
 export default {
   getTodos,
+  addTodo,
   getTodoTitle,
+  deleteTodo,
 };
