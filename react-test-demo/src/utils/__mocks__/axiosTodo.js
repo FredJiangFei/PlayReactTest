@@ -26,14 +26,16 @@ const get = (url) => {
 };
 
 const post = (url, { title }) => {
-  data.push({
+  return Promise.resolve({
     id: data.length + 1,
     title: title,
   });
 };
 
 const deleteMock = (url) => {
-  data = data.filter((x) => x.id != 2);
+  return Promise.resolve({
+    status: 'ok',
+  });
 };
 
 export default {

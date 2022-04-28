@@ -70,11 +70,13 @@ describe('todo integration test', () => {
     );
 
     // Act
+    const deleteButtons = container.getElementsByClassName('btn-danger');
+    fireEvent.click(deleteButtons[0]);
 
     // Assert
     await waitFor(() => {
       expect(container.getElementsByClassName('btn-danger').length).toBe(1);
-      const todo1 = screen.getByText('delectus aut autem');
+      const todo1 = screen.getByText('quis ut nam facilis et officia qui');
       expect(todo1).toBeInTheDocument();
     });
   });
