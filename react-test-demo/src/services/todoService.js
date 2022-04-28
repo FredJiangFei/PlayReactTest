@@ -7,7 +7,7 @@ const deleteTodo = (id) => axios.delete(`todos/${id}`);
 const getTodoTitle = (id) => {
   return axios
     .get(`todos/${id}`)
-    .then((res) => res.data.title)
+    .then((res) => res.title)
     .catch((err) => err.message);
 };
 

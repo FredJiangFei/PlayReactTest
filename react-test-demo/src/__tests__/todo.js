@@ -4,10 +4,12 @@ import { Provider } from 'react-redux';
 import store from '../store/Store';
 import Todo from '../pages/ToDo';
 
+jest.mock('../utils/axiosTodo.js');
+
 describe('todo integration test', () => {
   test('load todos', async () => {
     // Arrange
-    render(
+    const { container } = render(
       <BrowserRouter>
         <Provider store={store}>
           <Todo />
@@ -15,18 +17,21 @@ describe('todo integration test', () => {
       </BrowserRouter>
     );
 
-    // Act
-
     // Assert
     await waitFor(() => {
-      expect(screen.getByText('delectus aut autem')).toBeInTheDocument();
-      expect(screen.getByText('quis ut nam facilis et officia qui')).toBeInTheDocument();
+      expect(container.getElementsByClassName('btn-danger').length).toBe(2);
+
+      const todo1 = screen.getByText('delectus aut autem');
+      expect(todo1).toBeInTheDocument();
+
+      const todo2 = screen.getByText('quis ut nam facilis et officia qui');
+      expect(todo2).toBeInTheDocument();
     });
   });
 
   test('add todo', async () => {
     // Arrange
-    render(
+    const { container } = render(
       <BrowserRouter>
         <Provider store={store}>
           <Todo />
@@ -36,15 +41,41 @@ describe('todo integration test', () => {
 
     // Act
     const titleNode = document.querySelector('.form-control');
-    titleNode.value = "add new test integration";
+    titleNode.value = 'add new test integration';
     const submitButton = screen.getByText('Add Todo');
     fireEvent.click(submitButton);
 
     // Assert
     await waitFor(() => {
-      expect(screen.getByText('delectus aut autem')).toBeInTheDocument();
-      expect(screen.getByText('quis ut nam facilis et officia qui')).toBeInTheDocument();
-      expect(screen.getByText('add new test integration')).toBeInTheDocument();
+      expect(container.getElementsByClassName('btn-danger').length).toBe(3);
+      const todo1 = screen.getByText('delectus aut autem');
+      expect(todo1).toBeInTheDocument();
+
+      const todo2 = screen.getByText('quis ut nam facilis et officia qui');
+      expect(todo2).toBeInTheDocument();
+
+      const todo3 = screen.getByText('add new test integration');
+      expect(todo3).toBeInTheDocument();
+    });
+  });
+
+  test('delete todo', async () => {
+    // Arrange
+    const { container } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Todo />
+        </Provider>
+      </BrowserRouter>
+    );
+
+    // Act
+
+    // Assert
+    await waitFor(() => {
+      expect(container.getElementsByClassName('btn-danger').length).toBe(1);
+      const todo1 = screen.getByText('delectus aut autem');
+      expect(todo1).toBeInTheDocument();
     });
   });
 });
