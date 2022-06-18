@@ -1,7 +1,6 @@
 import './App.css'
 import * as React from 'react'
 import { Provider } from 'react-redux'
-import LocationDisplay from './components/LocationDisplay'
 import store from './store/Store'
 import 'milligram'
 import './i18n'
@@ -12,7 +11,6 @@ function App() {
   return (
     <Provider store={store}>
       {useRoutes(routes)}
-      <LocationDisplay />
     </Provider>
   )
 }

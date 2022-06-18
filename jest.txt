@@ -18,7 +18,7 @@ Jest(通用的 JavaScript 测试框架，用于组织和运行你的测试用例
 --toBeGreaterThan/toBeGreaterThanOrEqual/toBeLessThan
 
 ## Strings
---toMatch(egular expressions)
+--toMatch(regular expressions)
 
 ## Arrays and iterables
 --toContain
