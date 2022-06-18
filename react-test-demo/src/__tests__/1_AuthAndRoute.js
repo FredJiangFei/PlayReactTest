@@ -1,6 +1,5 @@
-import { render as rtlRender, screen } from '@testing-library/react'
+import { render as rtlRender, screen, fireEvent } from '@testing-library/react'
 import * as React from 'react'
-import userEvent from '@testing-library/user-event'
 import { BrowserRouter } from 'react-router-dom'
 import App from '../App'
 
@@ -24,7 +23,7 @@ describe('Auth', () => {
 
     expect(screen.getByText(/You are home/i)).toBeInTheDocument()
 
-    userEvent.click(screen.getByText(/about/i))
+    fireEvent.click(screen.getByText(/about/i))
     expect(screen.getByText(/you are on the about page/i)).toBeInTheDocument()
   })
 

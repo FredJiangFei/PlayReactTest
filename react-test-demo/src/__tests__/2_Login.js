@@ -3,7 +3,6 @@ import {
   fireEvent,
   waitFor,
   cleanup,
-  screen,
 } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
@@ -25,15 +24,14 @@ const render = () => {
 describe('login integration test', () => {
   test('login no username', async () => {
     // Arrange
-    render()
-
-    const submitBtn = screen.getByText('Login')
+    const { getByText, getByTestId } = render()
 
     // Act
+    const submitBtn = getByText('Login')
     fireEvent.click(submitBtn)
 
     // Assert
-    const error = screen.getByTestId('test-error')
+    const error = getByTestId('test-error')
     await waitFor(() => {
       expect(error.textContent).toBe('Missing email or username')
     })
@@ -41,17 +39,16 @@ describe('login integration test', () => {
 
   test('login no password', async () => {
     // Arrange
-    render()
-
-    const username = screen.getByLabelText('Username')
+    const { getByText, getByLabelText, getByTestId } = render()
+    const username = getByLabelText('Username')
     username.value = 'eve.holt@reqres.in'
 
     // Act
-    const submitBtn = screen.getByText('Login')
+    const submitBtn = getByText('Login')
     fireEvent.click(submitBtn)
 
     // Assert
-    const error = screen.getByTestId('test-error')
+    const error = getByTestId('test-error')
     await waitFor(() => {
       expect(error.textContent).toBe('Missing password')
     })

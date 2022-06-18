@@ -1,4 +1,4 @@
-import { render, fireEvent, screen } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import LoginForm from '../components/LoginForm'
 
 test('test login form', () => {
@@ -6,11 +6,13 @@ test('test login form', () => {
   const fakeUser = { username: 'fred', password: '123' }
   const handleSubmit = jest.fn()
 
-  render(<LoginForm onSubmit={handleSubmit} />)
+  const { getByLabelText, getByText } = render(
+    <LoginForm onSubmit={handleSubmit} />
+  )
 
-  const username = screen.getByLabelText('Username')
-  const password = screen.getByLabelText('Password')
-  const submitBtn = screen.getByText('Login')
+  const username = getByLabelText('Username')
+  const password = getByLabelText('Password')
+  const submitBtn = getByText('Login')
 
   username.value = fakeUser.username
   password.value = fakeUser.password

@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { I18nextProvider } from 'react-i18next'
 import i18n from 'i18next'
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen, fireEvent } from '@testing-library/react'
 import "../i18n";
 import Greeting from '../components/Greeting'
 
@@ -18,9 +17,9 @@ test('it should test lang', () => {
 
   expect(p).toHaveTextContent('Welcome to React')
 
-  userEvent.click(pt)
+  fireEvent.click(pt)
   expect(p).toHaveTextContent('Bem vindo ao React')
 
-  userEvent.click(en)
+  fireEvent.click(en)
   expect(p).toHaveTextContent('Welcome to React')
 })
