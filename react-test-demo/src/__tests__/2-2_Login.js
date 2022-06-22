@@ -53,4 +53,25 @@ describe('login integration test', () => {
       expect(error.textContent).toBe('Missing password')
     })
   })
+
+  test('login success', async () => {
+    // Arrange
+    const { getByText, getByLabelText } = render()
+
+    const username = getByLabelText('Username')
+    username.value = 'eve.holt@reqres.in'
+
+    const password = getByLabelText('Password')
+    password.value = 'cityslicka'
+
+    // Act
+    const submitBtn = getByText('Login')
+    fireEvent.click(submitBtn)
+
+    // Assert
+    const success = getByText(/Login Success/i)
+    await waitFor(() => {
+      expect(success).toBeInTheDocument()
+    })
+  })
 })
